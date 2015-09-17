@@ -1,0 +1,4 @@
+openchain:
+  build: openchain
+  volumes:
+    - data:/openchain.server/wwwroot/App_Data/

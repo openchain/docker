@@ -1,0 +1,7 @@
+openchain:
+  extends:
+    file: base.yml
+    service: openchain
+  ports:
+    - "8080:8080"
+  

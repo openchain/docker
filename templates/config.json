@@ -1,0 +1,44 @@
+﻿{
+  "enable_transaction_stream": true,
+
+  "storage": {
+    "type": "SQLite",
+    "path": "ledger.db"
+  },
+
+  // Define transaction validation parameters
+  "master_mode": {
+    // Required: The root URL where this instance is hosted
+    "root_url": "",
+    "validator": {
+      "type": "PermissionBased",
+      "allow_third_party_assets": true,
+      // Base-58 addresses that must have admin rights
+      "admin_addresses": [
+      ],
+      // Special issuer, in the following format:
+      //
+      // {
+      //   "path": "",
+      //   "addresses": [
+      //     ""
+      //   ]
+      // }
+      "issuers": [
+      ],
+      "version_byte": 111
+    }
+  },
+
+  // Uncomment this and comment the "master_mode" section to enable observer mode
+  // "observer_mode": {
+  //   "master_url": ""
+  // },
+
+  "anchoring": {
+    "type": "blockchain",
+    // The key used to publish anchors in the Blockchain
+    "key": "",
+    "bitcoin_api_url": "https://testnet.api.coinprism.com/v1/"
+  }
+}
