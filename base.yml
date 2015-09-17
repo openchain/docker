@@ -1,4 +1,4 @@
 openchain:
-  build: openchain
+  image: openchain/server-base
   volumes:
     - data:/openchain.server/wwwroot/App_Data/
