@@ -31,8 +31,8 @@ RUN LIBUV_VERSION=1.4.2 \
 
 ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
-COPY publish /openchain.server
-COPY config.json /openchain.server/wwwroot/App_Data/
+COPY publish/approot/src /openchain.server/approot/src
+COPY publish/approot/global.json /openchain.server/approot/
 COPY NuGet.Config /root/.config/NuGet/
 
 WORKDIR /openchain.server/approot
