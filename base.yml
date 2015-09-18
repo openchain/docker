@@ -1,4 +1,4 @@
 openchain:
-  image: openchain/server-base:0.2.1
+  image: openchain/server:0.2.1
   volumes:
     - ./data:/openchain.server/wwwroot/App_Data/
