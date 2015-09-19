@@ -1,4 +1,5 @@
 openchain:
   image: openchain/server:0.2.1
+  container_name: openchain-server
   volumes:
-    - ./data:/openchain.server/wwwroot/App_Data/
+    - ./data:/openchain.server/wwwroot/App_Data
