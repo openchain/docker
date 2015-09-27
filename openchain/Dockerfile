@@ -38,6 +38,6 @@ COPY NuGet.Config /root/.config/NuGet/
 WORKDIR /openchain.server/approot
 RUN ["dnu", "restore", "--lock"]
 
-WORKDIR /openchain.server/approot/src/OpenChain.Server
+WORKDIR /openchain.server/approot/src/Openchain.Server
 EXPOSE 8080
 ENTRYPOINT dnx kestrel --server.urls http://localhost:8080
