@@ -2,12 +2,12 @@
   "enable_transaction_stream": true,
 
   "storage": {
-    "type": "SQLite",
+    "type": "Sqlite",
     "path": "ledger.db"
   },
 
   // Define transaction validation parameters
-  "master_mode": {
+  "validator_mode": {
     // Required: The root URL where this instance is hosted
     "root_url": "",
     "validator": {
@@ -30,9 +30,9 @@
     }
   },
 
-  // Uncomment this and comment the "master_mode" section to enable observer mode
+  // Uncomment this and comment the "validator_mode" section to enable observer mode
   // "observer_mode": {
-  //   "master_url": ""
+  //   "upstream_url": ""
   // },
 
   "anchoring": {
