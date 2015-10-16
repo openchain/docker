@@ -7,15 +7,18 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get install -y \
     autoconf \
-	automake \
+    automake \
     build-essential \
     curl \
-    libcurl3-dev \
+    gettext \
+    icu-devtools \
+    libcurl3-gnutls \
     libsqlite3-dev \
     libssl-dev \
     libtool \
     libunwind8 \
-	unzip
+    unzip \
+    zlib1g
     
 RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh
 RUN bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh \
@@ -40,4 +43,4 @@ RUN ["dnu", "restore", "--lock"]
 
 WORKDIR /openchain.server/approot/src/Openchain.Server
 EXPOSE 8080
-ENTRYPOINT dnx kestrel --server.urls http://localhost:8080
+ENTRYPOINT dnx start --server.urls http://localhost:8080
