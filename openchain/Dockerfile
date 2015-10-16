@@ -43,4 +43,4 @@ RUN ["dnu", "restore", "--lock"]
 
 WORKDIR /openchain.server/approot/src/Openchain.Server
 EXPOSE 8080
-ENTRYPOINT dnx start --server.urls http://localhost:8080
+ENTRYPOINT dnx start --server.urls http://0.0.0.0:8080
