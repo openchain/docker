@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-ENV DNX_VERSION 1.0.0-beta7
+ENV DNX_VERSION 1.0.0-beta8
 ENV DNX_USER_HOME /opt/dnx
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -19,7 +19,7 @@ RUN apt-get install -y \
     
 RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh
 RUN bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh \
-	&& dnvm install $DNX_VERSION -r coreclr -a default \
+	&& dnvm install $DNX_VERSION -r coreclr -alias default -arch x64 \
 	&& dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default"
 
 RUN LIBUV_VERSION=1.4.2 \
