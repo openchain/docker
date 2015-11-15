@@ -3,3 +3,4 @@ openchain:
   container_name: openchain-server
   volumes:
     - ./data:/openchain.server/Webroot/App_Data
+  restart: always
