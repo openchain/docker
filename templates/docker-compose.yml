@@ -1,5 +1,16 @@
+web:
+  build: nginx/.
+  container_name: nginx
+  ports:
+    - "80:80"
+  links:
+    - "openchain"
+  restart: always
+
 openchain:
   image: openchain/server:0.4.3
+  ports:
+    - "8080"
   container_name: openchain-server
   volumes:
     - ./data:/openchain.server/Webroot/App_Data
