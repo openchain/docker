@@ -1,6 +1,8 @@
 FROM ubuntu:14.04
 
-ENV DNX_VERSION 1.0.0-beta8
+ENV DNX_VERSION 1.0.0-rc1-final
+ENV OPENCHAIN_TAG master
+
 ENV DNX_USER_HOME /opt/dnx
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -11,6 +13,7 @@ RUN apt-get install -y \
     build-essential \
     curl \
     gettext \
+    git \
     icu-devtools \
     libcurl3-gnutls \
     libsqlite3-dev \
@@ -34,12 +37,17 @@ RUN LIBUV_VERSION=1.4.2 \
 
 ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
-COPY publish/approot/src /openchain.server/approot/src
-COPY publish/approot/global.json /openchain.server/approot/
-COPY NuGet.Config /root/.config/NuGet/
+RUN cd /tmp \
+    && git clone https://github.com/openchain/openchain.git openchain \
+    && cd openchain \
+    && git checkout $OPENCHAIN_TAG \
+    && cd src/Openchain.Server \
+    && dnu restore \
+    && dnu publish -o "/openchain.server" --iis-command start --configuration release --framework dnxcore50 \
+    && rm -rf /tmp/openchain \
+    && rm -rf /root/.dnx/packages
 
 WORKDIR /openchain.server/approot
-RUN ["dnu", "restore", "--lock"]
 
 WORKDIR /openchain.server/approot/src/Openchain.Server
 EXPOSE 8080
