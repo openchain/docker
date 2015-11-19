@@ -12,5 +12,5 @@ openchain:
   ports:
     - "8080"
   volumes:
-    - ./data:/openchain.server/Webroot/App_Data
+    - ./data:/openchain.server/approot/src/Openchain.Server/Webroot/App_Data
   restart: always
