@@ -1,5 +1,5 @@
 openchain:
-  image: openchain/server:0.4.3
+  image: openchain/server:0.4.4
   ports:
     - "8080:8080"
   container_name: openchain-server
