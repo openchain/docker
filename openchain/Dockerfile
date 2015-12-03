@@ -47,8 +47,6 @@ RUN cd /tmp \
     && rm -rf /tmp/openchain \
     && rm -rf /root/.dnx/packages
 
-WORKDIR /openchain.server/approot
-
 WORKDIR /openchain.server/approot/src/Openchain.Server
 EXPOSE 8080
 ENTRYPOINT dnx start --server.urls http://0.0.0.0:8080
