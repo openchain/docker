@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 
 ENV DNX_VERSION 1.0.0-rc1-final
-ENV OPENCHAIN_TAG master
+ENV OPENCHAIN_TAG v0.4.4
 
 ENV DNX_USER_HOME /opt/dnx
 ENV DEBIAN_FRONTEND noninteractive
