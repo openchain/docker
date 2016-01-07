@@ -2,16 +2,16 @@
   "enable_transaction_stream": true,
 
   "storage": {
-    "type": "Sqlite",
+    "provider": "SQLite",
     "path": "ledger.db"
   },
 
   // Define transaction validation parameters
   "validator_mode": {
-    // Required: The root URL where this instance is hosted
-    "root_url": "",
+    // Required: A random string used to generate the chain namespace
+    "instance_seed": "",
     "validator": {
-      "type": "PermissionBased",
+      "provider": "PermissionBased",
       // Enable /p2pkh/<address>/ accounts
       "allow_p2pkh_accounts": true,
       // Enable /asset/p2pkh/<address>/ accounts
@@ -29,11 +29,15 @@
   // },
 
   "anchoring": {
-    "type": "blockchain",
+    "provider": "Blockchain",
     // The key used to publish anchors in the Blockchain
     "key": "",
     "bitcoin_api_url": "https://testnet.api.coinprism.com/v1/",
     "network_byte": 111,
-    "fees": 1000
+    "fees": 5000,
+    "storage": {
+      "provider": "SQLite",
+      "path": "anchors.db"
+    }
   }
 }
