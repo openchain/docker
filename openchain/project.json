@@ -1,0 +1,41 @@
+﻿{
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
+  },
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0",
+      "type": "platform"
+    },
+
+    "Openchain.Server": "0.6.1",
+
+    "Openchain.Anchoring.Blockchain": "0.6.1",
+    "Openchain.Sqlite": "0.6.1",
+    "Openchain.SqlServer": "0.6.1",
+    "Openchain.Validation.PermissionBased": "0.6.1"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10"
+      ]
+    }
+  },
+
+  "publishOptions": {
+    "exclude": [
+      "**.xproj",
+      "**.user",
+      "**.vspscc"
+    ],
+    "include": [
+      "data"
+    ]
+  }
+}
