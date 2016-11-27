@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:1.1-runtime
+FROM microsoft/dotnet:1.1-sdk-projectjson
 
 RUN mkdir -p /tmp/openchain \
     && mkdir -p /openchain
