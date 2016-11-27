@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:latest
+FROM microsoft/dotnet:1.1-runtime
 
 RUN mkdir -p /tmp/openchain \
     && mkdir -p /openchain
